@@ -1,0 +1,52 @@
+const { gql } = require('apollo-server')
+
+module.exports = gql`
+  type ICat {
+    id: ID!
+    url: String!
+    name: String!
+    description: String
+    favorite: [Favorite]
+    fav_id: Int
+    vote_id: Int
+    value: Int
+    user: User
+  }
+
+  type User {
+    postId: ID!
+    token: String!
+    username: String!
+    createdAt: String!
+    updatedAt: String!
+  }
+
+  type Favorite {
+    postId: ID!
+    username: String!
+  }
+
+  input CreateNewPost {
+    postId: ID!
+    name: String!
+    url: String!
+    description: String!
+  }
+
+  input updatePostInput {
+    postId: ID!
+    data: String
+  }
+
+  type Query {
+    posts: [ICat]
+    likes: [ICat]
+    votes: [ICat]
+  }
+
+  type Mutation {
+    createPost(input: CreateNewPost!): ICat!
+    updatePost(id: ID, input: CreateNewPost!): ICat!
+    deletePost(id: ID): String!
+  }
+`

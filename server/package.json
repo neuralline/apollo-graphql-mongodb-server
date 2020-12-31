@@ -1,0 +1,26 @@
+{
+  "name": "apollo-graphql-mongodb-server",
+  "version": "0.1.0",
+  "description": "apollo graphql node server",
+  "main": "index.js",
+  "author": "Darik.",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^14.14.17",
+    "nodemon": "^2.0.6"
+  },
+  "scripts": {
+    "start": "node ./server",
+    "server": "nodemon  ./server",
+    "client": "npm run --prefix client start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "dependencies": {
+    "apollo-server": "^2.19.1",
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "helmet": "^4.3.1",
+    "mongoose": "^5.11.9"
+  }
+}
